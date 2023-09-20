@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表单</title>
+  </head>
+  <body>
+    <h4 style="color: blue">欢迎注册会员</h4>
+    <form>
+      <label>
+        <b>手机号码：</b>
+        <input type="text" name="phonenumber" placeholder="11位手机号码" />
+        <span style="color: red">必填</span>
+      </label>
+
+      <br />
+      <label>
+        <b>创建密码：</b>
+        <input type="password" name="pwd" maxlength="8" placeholder="8位密码" />
+        <span style="color: red">必填</span>
+      </label>
+      <br />
+      <label>
+        <b>注册邮箱：</b>
+        <input type="text" name="email" placeholder="例如:wustzz@sina.com" />
+        <span style="color: red">必填</span>
+      </label>
+      <br />
+      <div style="position: absolute; left: 1.6%">
+        <label><b>验证码：</b></label>
+        <input type="text" name="captcha" />
+        <img src="images/" alt="验证码" />
+      </div>
+      <br />
+      <div style="position: absolute; left: 2.6%">
+        <b>性别：</b>
+        <input type="radio" name="sex" value="male" /> 男
+        <input type="radio" name="sex" value="female" /> 女
+      </div>
+      <br />
+      <label style="position: absolute; left: 2.6%">
+        <b>生日：</b>
+        <input type="text" name="birthday" placeholder="年/月/日" />
+      </label>
+      <br />
+      <label style="position: absolute; left: 2.6%">
+        <b>年龄：</b>
+        <input type="text" name="age" />
+      </label>
+      <br />
+      <div style="position: absolute; left: 2.6%">
+        <b>籍贯：</b>
+        <select name="province">
+          <option value="0">广东省</option>
+          <option value="1" selected="selected">湖北省</option>
+          <option value="2">湖南省</option>
+        </select>
+        <select name="city">
+          <option value="0">荆州</option>
+          <option value="1" selected="selected">武汉</option>
+          <option value="2">鄂州</option>
+        </select>
+      </div>
+
+      <br />
+      <b>个人学历：</b>
+      <select name="degree">
+        <option value="0">初中</option>
+        <option value="1">高中</option>
+        <option value="2" selected="selected">本科</option>
+        <option value="3">研究生</option>
+        <option value="4">博士</option>
+      </select>
+      <br />
+      <div style="position: absolute; left: 2.6%">
+        <b>月薪：</b>
+        <input
+          type="range"
+          id="salary"
+          name="salary"
+          min="0.0"
+          max="100000.0"
+          step="1000"
+          value="50000.0"
+        />
+        <span id="msg"></span>
+      </div>
+      <br />
+      <b>个人爱好：</b>
+      <label><input type="checkbox" name="like" value="sing" />唱歌</label>
+      <label><input type="checkbox" name="like" value="run" />跑步</label>
+      <label><input type="checkbox" name="like" value="swim" />游泳</label>
+      <br />
+      <b>个人照片：</b>
+      <input type="file" id="test-image-file" name="test" />
+      <br />
+      <div style="position: absolute; left: 2.6%">
+        <b>简介：</b>
+        <br />
+        <textarea name="intro" cols="50" rows="10"></textarea>
+      </div>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <div style="position: absolute;left: 2.5%">
+        <input type="submit" value="提交" />
+        <input type="reset" value="重填" />
+      </div>
+    </form>
+    <script>
+      var msg = document.getElementById("msg"); // 根据id值找到span元素
+      window.onload = function () {
+        msg.innerHTML = document.getElementById("salary").value; // 获取区间域初始value值
+      };
+      document.getElementById("salary").onchange = function () {
+        msg.innerHTML = this.value; // 将当前区间域的value作为span元素的内容
+      };
+    </script>
+  </body>
+</html>
